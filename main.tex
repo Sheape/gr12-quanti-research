@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\usepackage{pr2}
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\begin{document}
+\input{title-page}
+
+\begin{center}
+\tableofcontents
+\end{center}
+\addcontentsline{toc}{section}{Title Page}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+\input{introduction/background-of-the-study}
+\input{introduction/literature-review}
+\input{introduction/statement-of-the-problem}
+\input{introduction/hypothesis}
+\input{introduction/scope-and-delimitation}
+\input{introduction/significance-of-the-study}
+
+\printbibliography
+
+\end{document}

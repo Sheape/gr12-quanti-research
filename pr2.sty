@@ -1,0 +1,42 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pr2}[2023/09/29]
+% \usepackage{xcolor}
+% \usepackage{xparse}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage[a4paper, margin=1in]{geometry}
+% \usepackage{enumitem}
+% \usepackage{hyperref}
+% \usepackage{url}
+% \usepackage{flafter}
+% \usepackage{luacolor}
+% \usepackage{lua-ul}
+% \usepackage[fleqn]{amsmath}
+% \usepackage{amssymb}
+% \usepackage{capt-of}
+% \usepackage{rotating}
+% \usepackage{wrapfig}
+% \usepackage{longtable}
+% \usepackage{graphicx}
+\usepackage{titletoc}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+% \usepackage{import}
+
+% Fonts
+\setmainfont{Times Newer Roman}
+
+\linespread{2}
+
+% Table of Contents
+\setlength{\cftbeforesecskip}{0.1em} % reduce space before sections
+\renewcommand{\cftsecfont}{\normalfont} % remove bold formatting for sections
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftdotsep}{1}
+\renewcommand{\contentsname}{\center{Table of Contents}}
+
+% For disabling hyphen before entering a new line
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\parfillskip}{0pt plus 1fil}
+\endinput
