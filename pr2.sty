@@ -5,7 +5,7 @@
 \usepackage{titlesec}
 \usepackage{fontspec}
 \usepackage[a4paper, margin=1in]{geometry}
-% \usepackage{enumitem}
+\usepackage{enumitem}
 % \usepackage{hyperref}
 % \usepackage{url}
 % \usepackage{flafter}
@@ -21,6 +21,9 @@
 \usepackage{titletoc}
 \usepackage{tocloft}
 \usepackage{indentfirst}
+\usepackage{titleps}
+\usepackage{ragged2e}
+\usepackage{microtype}
 % \usepackage{import}
 
 % Fonts
@@ -39,7 +42,24 @@
 \hyphenpenalty=10000
 \exhyphenpenalty=10000
 \setlength{\parfillskip}{0pt plus 1fil}
+\setlength{\emergencystretch}{0.1in}
 
 % Paragraph formatting
 \setlength{\parindent}{0.5in}
+\setlength{\RaggedRightParindent}{0.5in}
+\RaggedRight
+
+% Header styling
+\newpagestyle{regularpagestyle}{
+  \sethead{\textbf{SLEEP QUALITY AND BLOOD SUGAR LEVEL}}{}{\thepage}
+  \setfoot{}{}{}
+}
+
+\newpagestyle{titlepagestyle}{
+  \sethead{Running Head: SLEEP QUALITY AND BLOOD SUGAR LEVEL}{}{}
+  \setfoot{}{}{}
+}
+
+% List
+\setlist[enumerate]{itemsep=5pt,parsep=0pt,topsep=0pt}
 \endinput
