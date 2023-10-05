@@ -4,9 +4,9 @@
 % \usepackage{xparse}
 \usepackage{titlesec}
 \usepackage{fontspec}
-\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[letterpaper, margin=1in, left=1.5in]{geometry}
 \usepackage{enumitem}
-% \usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 % \usepackage{url}
 % \usepackage{flafter}
 % \usepackage{luacolor}
@@ -17,26 +17,52 @@
 % \usepackage{rotating}
 % \usepackage{wrapfig}
 % \usepackage{longtable}
-% \usepackage{graphicx}
+% \usepackage[most]{tcolorbox}
+\usepackage[format=plain, labelfont={bf,it}, labelsep=period]{caption}
+\usepackage{cleveref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{graphicx}
 \usepackage{titletoc}
 \usepackage{tocloft}
 \usepackage{indentfirst}
 \usepackage{titleps}
 \usepackage{ragged2e}
 \usepackage{microtype}
+\usepackage[nolist]{acronym}
+\usepackage{setspace}
 % \usepackage{import}
 
 % Fonts
-\setmainfont{Times Newer Roman}
+\setmainfont{Times Newer Roman}[
+  SmallCapsFont = {Linux Libertine Capitals},
+  SmallCapsFeatures = {Letters=SmallCaps}
+]
+
+%% Overleaf Specific
+% \setmainfont{TimesNewerRoman-Regular.otf}[
+%   BoldFont = {TimesNewerRoman-Bold.otf},
+%   ItalicFont = {TimesNewerRoman-Italic.otf},
+%   BoldItalicFont = {TimesNewerRoman-BoldItalic.otf},
+%   SmallCapsFont = {LinLibertine_aS.ttf},
+%   SmallCapsFeatures = {Letters=SmallCaps}
+% ]
 
 \linespread{2}
+
+% Figures
+\crefformat{figure}{Figure~#2#1#3}
 
 % Table of Contents
 \setlength{\cftbeforesecskip}{0.1em} % reduce space before sections
 \renewcommand{\cftsecfont}{\normalfont} % remove bold formatting for sections
 \renewcommand{\cftsecpagefont}{\normalfont}
 \renewcommand{\cftdotsep}{1}
-\renewcommand{\contentsname}{\center{Table of Contents}}
+\renewcommand{\contentsname}{\center{\normalsize Table of Contents}}
+
+% Hyperref
+% \hypersetup{linktoc=all}
+% \hypersetup{linktocpage}
 
 % For disabling hyphen before entering a new line
 \hyphenpenalty=10000
@@ -46,20 +72,80 @@
 
 % Paragraph formatting
 \setlength{\parindent}{0.5in}
-\setlength{\RaggedRightParindent}{0.5in}
-\RaggedRight
+% \setlength{\RaggedRightParindent}{0.5in}
+% \RaggedRight
+
+% Title Formatting
+\titlespacing{\section}
+{0em}
+{0em}
+{0em}
+
+\titleformat{\section}
+{\centering\normalfont\normalsize\bfseries}
+{}
+{1em}
+{}
+
+\titleformat{\subsection}
+{\normalfont\normalsize\bfseries}
+{}
+{1em}
+{}
+
+\titlespacing{\subsection}
+{0em}
+{0em}
+{0em}
+
+\titlespacing{\subsubsection}
+{0em}
+{0em}
+{0em}
+
+\titleformat{\paragraph}[runin]
+{\bfseries}
+{\theparagraph}
+{}
+{\space}
+[.]
+
+\titlespacing*{\paragraph}{\parindent}{0ex}{1ex}
+
+\titleformat{\subparagraph}[runin]
+{\bfseries\itseries}
+{\theparagraph}
+{}
+{\space}
+[.]
+
+
+\setlength{\parskip}{0em}
 
 % Header styling
 \newpagestyle{regularpagestyle}{
-  \sethead{\textbf{SLEEP QUALITY AND BLOOD SUGAR LEVEL}}{}{\thepage}
+  \sethead{\textsc{\textbf{Sleep Quality And Blood Sugar Level}}}{}{\thepage}
   \setfoot{}{}{}
 }
 
 \newpagestyle{titlepagestyle}{
-  \sethead{Running Head: SLEEP QUALITY AND BLOOD SUGAR LEVEL}{}{}
+  \sethead{Running Head: \textsc{Sleep Quality And Blood Sugar Level}}{}{}
   \setfoot{}{}{}
 }
 
 % List
 \setlist[enumerate]{itemsep=5pt,parsep=0pt,topsep=0pt}
+
+% Custom Commands
+\newcommand{\newsubsection}[1]{
+  \phantomsection
+  \subsection*{#1}
+  \addcontentsline{toc}{subsection}{#1}
+}
+
+\newcommand{\newsection}[1]{
+  \phantomsection
+  \section*{#1}
+  \addcontentsline{toc}{section}{#1}
+}
 \endinput
